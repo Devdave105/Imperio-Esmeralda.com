@@ -572,3 +572,157 @@ body {
   background: #fff;
   color: #000;
 }
+.materials-gallery {
+  padding: 90px 20px;
+  background: #0d0d0d;
+  text-align: center;
+  font-family: 'Didot', serif;
+  color: #fff;
+}
+
+.materials-gallery h2 {
+  font-size: 2.7rem;
+  margin-bottom: 10px;
+}
+
+.gallery-sub {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  margin-bottom: 60px;
+  font-family: 'Model', sans-serif;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay on hover desktop */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  padding: 15px 10px;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.gallery-card:hover .overlay {
+  background: rgba(245,197,66,0.8); /* yellow accent */
+}
+
+.overlay h4 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Model', sans-serif;
+}
+
+/* CTA */
+.gallery-cta {
+  margin-top: 70px;
+  padding: 40px 20px;
+}
+
+.gallery-cta h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.gallery-cta p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin-bottom: 25px;
+}
+
+.gallery-cta .cta-btn {
+  display: inline-block;
+  padding: 14px 35px;
+  background: #f5c542;
+  color: #111;
+  font-weight: bold;
+  font-family: 'Model', sans-serif;
+  font-size: 1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.gallery-cta .cta-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* POPUP STYLING */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #111;
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 300px;
+  color: #fff;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f5c542;
+}
+
+.popup-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+/* Tap hint overlay on mobile */
+@media (max-width: 768px) {
+  .gallery-card::after {
+    content: "Tap to view";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(245,197,66,0.85); /* yellow */
+    color: #111;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+}

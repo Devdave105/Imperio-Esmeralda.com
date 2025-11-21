@@ -51,3 +51,29 @@ document.querySelectorAll('.faq-item').forEach(item => {
     item.classList.toggle('active');
   });
 });
+// Get elements
+const galleryCards = document.querySelectorAll('.gallery-card');
+const popup = document.getElementById('popup');
+const popupText = document.getElementById('popup-text');
+const popupClose = document.querySelector('.popup-close');
+
+// Add click event to each gallery card
+galleryCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const title = card.getAttribute('data-title');
+    popupText.textContent = title;
+    popup.style.display = 'flex';
+  });
+});
+
+// Close popup
+popupClose.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+// Close popup when clicking outside content
+popup.addEventListener('click', e => {
+  if(e.target === popup){
+    popup.style.display = 'none';
+  }
+});
