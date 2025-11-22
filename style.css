@@ -1536,4 +1536,28 @@ body {
     margin: 0 5px;
   }
 }
+.footer-scroll-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  background: #f5c542;
+  color: #111;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.footer-scroll-top:hover {
+  transform: scale(1.1);
+  background: #fff;
+  color: #111;
+}
 
