@@ -77,3 +77,21 @@ popup.addEventListener('click', e => {
     popup.style.display = 'none';
   }
 });
+<script>
+  const scrollUpBtn = document.getElementById('scrollUp');
+
+  // Show button when user scrolls down
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 300){
+      scrollUpBtn.style.display = "block";
+    } else {
+      scrollUpBtn.style.display = "none";
+    }
+  });
+
+  // Smooth scroll to top
+  scrollUpBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
