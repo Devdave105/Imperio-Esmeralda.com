@@ -1,3 +1,4 @@
+// NAVBAR TOGGLE
 const nav = document.getElementById("navLinks");
 const hamburger = document.getElementById("hamburger");
 
@@ -11,15 +12,16 @@ hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
 });
 
-// Show "Site Under Construction" on click for all links and buttons
+// Show "Site Under Construction" on click for all links
 const clickableElements = document.querySelectorAll('a, .login-btn, .cart-icon svg');
 
 clickableElements.forEach(el => {
     el.addEventListener('click', (e) => {
-        e.preventDefault(); // prevent default navigation
+        e.preventDefault();
         alert("🚧 Site Under Construction – Stay tuned!");
     });
 });
+
 // Product buttons alert
 const productButtons = document.querySelectorAll('.card .btn');
 productButtons.forEach(btn => {
@@ -31,67 +33,64 @@ productButtons.forEach(btn => {
 
 // CTA button alert
 const ctaBtn = document.querySelector('.cta-btn');
-ctaBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert("🚧 Site Under Construction – Stay tuned!");
-});
-
-
-const aboutBtn = document.querySelector('.about-btn');
-aboutBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert("🚧 Site Under Construction – Stay tuned!");
-});
-
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-question').addEventListener('click', () => {
-    document.querySelectorAll('.faq-item').forEach(i => {
-      if (i !== item) i.classList.remove('active');
+if (ctaBtn) {
+    ctaBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("🚧 Site Under Construction – Stay tuned!");
     });
-    item.classList.toggle('active');
-  });
+}
+
+// ABOUT button alert
+const aboutBtn = document.querySelector('.about-btn');
+if (aboutBtn) {
+    aboutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("🚧 Site Under Construction – Stay tuned!");
+    });
+}
+
+// FAQ DROPDOWN
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+        document.querySelectorAll('.faq-item').forEach(i => {
+            if (i !== item) i.classList.remove('active');
+        });
+        item.classList.toggle('active');
+    });
 });
-// Get elements
+
+// GALLERY POPUP
 const galleryCards = document.querySelectorAll('.gallery-card');
 const popup = document.getElementById('popup');
 const popupText = document.getElementById('popup-text');
 const popupClose = document.querySelector('.popup-close');
 
-// Add click event to each gallery card
 galleryCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const title = card.getAttribute('data-title');
-    popupText.textContent = title;
-    popup.style.display = 'flex';
-  });
+    card.addEventListener('click', () => {
+        popupText.textContent = card.getAttribute('data-title');
+        popup.style.display = 'flex';
+    });
 });
 
-// Close popup
-popupClose.addEventListener('click', () => {
-  popup.style.display = 'none';
-});
+popupClose.addEventListener('click', () => popup.style.display = 'none');
 
-// Close popup when clicking outside content
 popup.addEventListener('click', e => {
-  if(e.target === popup){
-    popup.style.display = 'none';
-  }
+    if (e.target === popup) popup.style.display = 'none';
 });
-<script>
-  const scrollUpBtn = document.getElementById('scrollUp');
 
-  // Show button when user scrolls down
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 300){
-      scrollUpBtn.style.display = "block";
+// SCROLL TO TOP BUTTON
+const scrollUpBtn = document.getElementById('footerScrollTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollUpBtn.style.display = "flex";
     } else {
-      scrollUpBtn.style.display = "none";
+        scrollUpBtn.style.display = "none";
     }
-  });
+});
 
-  // Smooth scroll to top
-  scrollUpBtn.addEventListener('click', (e) => {
+// Smooth scroll
+scrollUpBtn.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
+});
